@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<mavlink>
+  <include>ardupilotmega.xml</include>
+  <version>3</version>
+  <enums>
+  </enums>
+  <messages>
+    <message id="271" name="SWARM_BEAT">
+      <description>The swarm beat message is the heartbeat analog for the swarm. It provides the nessessary information about position and speed of an agent.</description>
+      <field type="uint8_t" name="gpid">Group ID</field>
+      <field type="uint32_t" name="flightlevel" units="m">Flight level</field>
+      <field type="int32_t" name="lat" units="degE7">Latitude, expressed</field>
+      <field type="int32_t" name="lon" units="degE7">Longitude, expressed</field>
+      <field type="int32_t" name="alt" units="mm">Altitude (MSL). Note that virtually all GPS modules provide both WGS84 and MSL.</field>
+      <field type="float" name="groundspeed" units="m/s">Current ground speed</field>
+    </message>
+  </messages>
+</mavlink>
