@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <mavlink>
   <include>ardupilotmega.xml</include>
+  <include>common.xml</include>
+  <include>uAvionix.xml</include>
+  <include>icarous.xml</include>
   <version>3</version>
   <enums>
   </enums>
