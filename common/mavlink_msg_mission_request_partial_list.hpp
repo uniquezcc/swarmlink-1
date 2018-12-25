@@ -9,7 +9,7 @@ namespace msg {
 /**
  * @brief MISSION_REQUEST_PARTIAL_LIST message
  *
- * Request a partial list of mission items from the system/component. https://mavlink.io/en/protocol/mission.html. If start and end index are the same, just send one waypoint.
+ * Request a partial list of mission items from the system/component. https://mavlink.io/en/services/mission.html. If start and end index are the same, just send one waypoint.
  */
 struct MISSION_REQUEST_PARTIAL_LIST : mavlink::Message {
     static constexpr msgid_t MSG_ID = 37;

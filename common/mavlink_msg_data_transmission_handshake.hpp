@@ -9,7 +9,7 @@ namespace msg {
 /**
  * @brief DATA_TRANSMISSION_HANDSHAKE message
  *
- * Handshake message to initiate, control and stop image streaming when using the Image Transmission Protocol: https://mavlink.io/en/protocol/image_transmission.html.
+ * Handshake message to initiate, control and stop image streaming when using the Image Transmission Protocol: https://mavlink.io/en/services/image_transmission.html.
  */
 struct DATA_TRANSMISSION_HANDSHAKE : mavlink::Message {
     static constexpr msgid_t MSG_ID = 130;

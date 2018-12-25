@@ -156,4 +156,4 @@ constexpr auto UAVIONIX_ADSB_EMERGENCY_STATUS_ENUM_END = 8;
 #include "./mavlink_msg_uavionix_adsb_transceiver_health_report.hpp"
 
 // base include
-
+#include "../common/common.hpp"

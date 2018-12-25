@@ -9,7 +9,7 @@ namespace msg {
 /**
  * @brief ENCAPSULATED_DATA message
  *
- * Data packet for images sent using the Image Transmission Protocol: https://mavlink.io/en/protocol/image_transmission.html.
+ * Data packet for images sent using the Image Transmission Protocol: https://mavlink.io/en/services/image_transmission.html.
  */
 struct ENCAPSULATED_DATA : mavlink::Message {
     static constexpr msgid_t MSG_ID = 131;

@@ -6,6 +6,18 @@
   <include>icarous.xml</include>
   <version>3</version>
   <enums>
+      <enum name="MAV_CMD">
+        <entry value="50000" name="MAV_CMD_SWITCH_SWARM_MODE">
+          <description>Enables of disables vehicle's swarm mode.</description>
+          <param index="1">State (0 - disable, 1 - enable).</param>
+          <param index="2">Empty.</param>
+          <param index="3">Empty.</param>
+          <param index="4">Empty.</param>
+          <param index="5">Empty.</param>
+          <param index="6">Empty.</param>
+          <param index="7">Empty.</param>
+        </entry>
+      </enum>
   </enums>
   <messages>
     <message id="271" name="SWARM_BEAT">

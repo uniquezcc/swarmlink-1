@@ -9,7 +9,7 @@ namespace msg {
 /**
  * @brief LANDING_TARGET message
  *
- * The location of a landing target. See: https://mavlink.io/en/protocol/landing_target.html
+ * The location of a landing target. See: https://mavlink.io/en/services/landing_target.html
  */
 struct LANDING_TARGET : mavlink::Message {
     static constexpr msgid_t MSG_ID = 149;

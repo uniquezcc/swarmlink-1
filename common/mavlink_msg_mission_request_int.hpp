@@ -9,7 +9,7 @@ namespace msg {
 /**
  * @brief MISSION_REQUEST_INT message
  *
- * Request the information of the mission item with the sequence number seq. The response of the system to this message should be a MISSION_ITEM_INT message. https://mavlink.io/en/protocol/mission.html
+ * Request the information of the mission item with the sequence number seq. The response of the system to this message should be a MISSION_ITEM_INT message. https://mavlink.io/en/services/mission.html
  */
 struct MISSION_REQUEST_INT : mavlink::Message {
     static constexpr msgid_t MSG_ID = 51;
