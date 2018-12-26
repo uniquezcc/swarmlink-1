@@ -181,6 +181,140 @@ TEST(swarmlink_interop, BUDDY_INFO)
 }
 #endif
 
+TEST(swarmlink, BUDDY_POSITION)
+{
+    mavlink::mavlink_message_t msg;
+    mavlink::MsgMap map1(msg);
+    mavlink::MsgMap map2(msg);
+
+    mavlink::swarmlink::msg::BUDDY_POSITION packet_in{};
+    packet_in.lat = 963497464;
+    packet_in.lon = 963497672;
+    packet_in.alt = 963497880;
+    packet_in.distance = 101.0;
+
+    mavlink::swarmlink::msg::BUDDY_POSITION packet1{};
+    mavlink::swarmlink::msg::BUDDY_POSITION packet2{};
+
+    packet1 = packet_in;
+
+    //std::cout << packet1.to_yaml() << std::endl;
+
+    packet1.serialize(map1);
+
+    mavlink::mavlink_finalize_message(&msg, 1, 1, packet1.MIN_LENGTH, packet1.LENGTH, packet1.CRC_EXTRA);
+
+    packet2.deserialize(map2);
+
+    EXPECT_EQ(packet1.lat, packet2.lat);
+    EXPECT_EQ(packet1.lon, packet2.lon);
+    EXPECT_EQ(packet1.alt, packet2.alt);
+    EXPECT_EQ(packet1.distance, packet2.distance);
+}
+
+#ifdef TEST_INTEROP
+TEST(swarmlink_interop, BUDDY_POSITION)
+{
+    mavlink_message_t msg;
+
+    // to get nice print
+    memset(&msg, 0, sizeof(msg));
+
+    mavlink_buddy_position_t packet_c {
+         963497464, 963497672, 963497880, 101.0
+    };
+
+    mavlink::swarmlink::msg::BUDDY_POSITION packet_in{};
+    packet_in.lat = 963497464;
+    packet_in.lon = 963497672;
+    packet_in.alt = 963497880;
+    packet_in.distance = 101.0;
+
+    mavlink::swarmlink::msg::BUDDY_POSITION packet2{};
+
+    mavlink_msg_buddy_position_encode(1, 1, &msg, &packet_c);
+
+    // simulate message-handling callback
+    [&packet2](const mavlink_message_t *cmsg) {
+        MsgMap map2(cmsg);
+
+        packet2.deserialize(map2);
+    } (&msg);
+
+    EXPECT_EQ(packet_in.lat, packet2.lat);
+    EXPECT_EQ(packet_in.lon, packet2.lon);
+    EXPECT_EQ(packet_in.alt, packet2.alt);
+    EXPECT_EQ(packet_in.distance, packet2.distance);
+
+#ifdef PRINT_MSG
+    PRINT_MSG(msg);
+#endif
+}
+#endif
+
+TEST(swarmlink, BUDDY_GROUNDSPEED)
+{
+    mavlink::mavlink_message_t msg;
+    mavlink::MsgMap map1(msg);
+    mavlink::MsgMap map2(msg);
+
+    mavlink::swarmlink::msg::BUDDY_GROUNDSPEED packet_in{};
+    packet_in.groundspeed = 17.0;
+    packet_in.distance = 45.0;
+
+    mavlink::swarmlink::msg::BUDDY_GROUNDSPEED packet1{};
+    mavlink::swarmlink::msg::BUDDY_GROUNDSPEED packet2{};
+
+    packet1 = packet_in;
+
+    //std::cout << packet1.to_yaml() << std::endl;
+
+    packet1.serialize(map1);
+
+    mavlink::mavlink_finalize_message(&msg, 1, 1, packet1.MIN_LENGTH, packet1.LENGTH, packet1.CRC_EXTRA);
+
+    packet2.deserialize(map2);
+
+    EXPECT_EQ(packet1.groundspeed, packet2.groundspeed);
+    EXPECT_EQ(packet1.distance, packet2.distance);
+}
+
+#ifdef TEST_INTEROP
+TEST(swarmlink_interop, BUDDY_GROUNDSPEED)
+{
+    mavlink_message_t msg;
+
+    // to get nice print
+    memset(&msg, 0, sizeof(msg));
+
+    mavlink_buddy_groundspeed_t packet_c {
+         17.0, 45.0
+    };
+
+    mavlink::swarmlink::msg::BUDDY_GROUNDSPEED packet_in{};
+    packet_in.groundspeed = 17.0;
+    packet_in.distance = 45.0;
+
+    mavlink::swarmlink::msg::BUDDY_GROUNDSPEED packet2{};
+
+    mavlink_msg_buddy_groundspeed_encode(1, 1, &msg, &packet_c);
+
+    // simulate message-handling callback
+    [&packet2](const mavlink_message_t *cmsg) {
+        MsgMap map2(cmsg);
+
+        packet2.deserialize(map2);
+    } (&msg);
+
+    EXPECT_EQ(packet_in.groundspeed, packet2.groundspeed);
+    EXPECT_EQ(packet_in.distance, packet2.distance);
+
+#ifdef PRINT_MSG
+    PRINT_MSG(msg);
+#endif
+}
+#endif
+
 TEST(swarmlink, GLOBAL_POI)
 {
     mavlink::mavlink_message_t msg;

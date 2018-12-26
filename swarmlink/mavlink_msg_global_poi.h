@@ -1,7 +1,7 @@
 #pragma once
 // MESSAGE GLOBAL_POI PACKING
 
-#define MAVLINK_MSG_ID_GLOBAL_POI 273
+#define MAVLINK_MSG_ID_GLOBAL_POI 275
 
 MAVPACKED(
 typedef struct __mavlink_global_poi_t {
@@ -14,17 +14,17 @@ typedef struct __mavlink_global_poi_t {
 
 #define MAVLINK_MSG_ID_GLOBAL_POI_LEN 14
 #define MAVLINK_MSG_ID_GLOBAL_POI_MIN_LEN 14
-#define MAVLINK_MSG_ID_273_LEN 14
-#define MAVLINK_MSG_ID_273_MIN_LEN 14
+#define MAVLINK_MSG_ID_275_LEN 14
+#define MAVLINK_MSG_ID_275_MIN_LEN 14
 
 #define MAVLINK_MSG_ID_GLOBAL_POI_CRC 57
-#define MAVLINK_MSG_ID_273_CRC 57
+#define MAVLINK_MSG_ID_275_CRC 57
 
 
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_GLOBAL_POI { \
-    273, \
+    275, \
     "GLOBAL_POI", \
     5, \
     {  { "gpid", NULL, MAVLINK_TYPE_UINT8_T, 0, 12, offsetof(mavlink_global_poi_t, gpid) }, \
