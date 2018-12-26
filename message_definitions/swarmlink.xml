@@ -6,10 +6,18 @@
   <include>icarous.xml</include>
   <version>3</version>
   <enums>
+      <enum name="SWARMING_STATE">
+        <entry value="0" name="SWARMING_DISABLED">
+          <description>Swarming disabled.</description>
+        </entry>
+        <entry value="1" name="SWARMING_ENABLED">
+          <description>Swarming enabled.</description>
+        </entry>        
+      </enum>  
       <enum name="MAV_CMD">
         <entry value="50000" name="MAV_CMD_SWITCH_SWARM_MODE">
           <description>Enables of disables vehicle's swarm mode.</description>
-          <param index="1">State (0 - disable, 1 - enable).</param>
+          <param index="1">As described in SWARMING_STATE enum.</param>
           <param index="2">Empty.</param>
           <param index="3">Empty.</param>
           <param index="4">Empty.</param>
@@ -28,6 +36,25 @@
       <field type="int32_t" name="lon" units="degE7">Longitude, expressed</field>
       <field type="int32_t" name="alt" units="mm">Altitude (MSL). Note that virtually all GPS modules provide both WGS84 and MSL.</field>
       <field type="float" name="groundspeed" units="m/s">Current ground speed</field>
+    </message>
+    <message id="272" name="BUDDY_INFO">
+      <description>This message contains information about boid.</description>
+      <field type="uint8_t" name="gpid">Group ID</field>
+      <field type="uint8_t" name="mav_id">MAV ID</field>
+      <field type="uint32_t" name="flightlevel" units="m">Flight level</field>
+      <field type="int32_t" name="lat" units="degE7">Latitude, expressed</field>
+      <field type="int32_t" name="lon" units="degE7">Longitude, expressed</field>
+      <field type="int32_t" name="alt" units="mm">Altitude (MSL). Note that virtually all GPS modules provide both WGS84 and MSL.</field>
+      <field type="float" name="groundspeed" units="m/s">Current ground speed</field>
+      <field type="float" name="distance" units="m/s">Distance to buddy</field>
+    </message>
+    <message id="273" name="GLOBAL_POI">
+      <description>This message contains information about boid.</description>
+      <field type="uint8_t" name="gpid">Group ID</field>
+      <field type="uint8_t" name="poi_n">Point num</field>
+      <field type="int32_t" name="lat" units="degE7">Latitude, expressed</field>
+      <field type="int32_t" name="lon" units="degE7">Longitude, expressed</field>
+      <field type="int32_t" name="alt" units="mm">Altitude (MSL). Note that virtually all GPS modules provide both WGS84 and MSL.</field>
     </message>
   </messages>
 </mavlink>
