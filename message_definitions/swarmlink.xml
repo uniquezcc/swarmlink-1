@@ -61,7 +61,7 @@
       <field type="float" name="distance" units="m">Distance to buddy</field>
     </message>         
     <message id="275" name="GLOBAL_POI">
-      <description>This message contains information about boid.</description>
+      <description>This message contains information global swarm point of interest.</description>
       <field type="uint8_t" name="gpid">Group ID</field>
       <field type="uint8_t" name="poi_n">Point num</field>
       <field type="int32_t" name="lat" units="degE7">Latitude, expressed</field>
