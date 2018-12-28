@@ -46,19 +46,19 @@
       <field type="int32_t" name="lon" units="degE7">Longitude, expressed</field>
       <field type="int32_t" name="alt" units="mm">Altitude (MSL). Note that virtually all GPS modules provide both WGS84 and MSL.</field>
       <field type="float" name="groundspeed" units="m/s">Current ground speed</field>
-      <field type="float" name="distance" units="m/s">Distance to buddy</field>
+      <field type="float" name="distance" units="m">Distance to buddy</field>
     </message>
     <message id="273" name="BUDDY_POSITION">
       <description>This message contains information about boid's position.</description>
       <field type="int32_t" name="lat" units="degE7">Latitude, expressed</field>
       <field type="int32_t" name="lon" units="degE7">Longitude, expressed</field>
       <field type="int32_t" name="alt" units="mm">Altitude (MSL). Note that virtually all GPS modules provide both WGS84 and MSL.</field>
-      <field type="float" name="distance" units="m/s">Distance to buddy</field>
+      <field type="float" name="distance" units="m">Distance to buddy</field>
     </message>
     <message id="274" name="BUDDY_GROUNDSPEED">
       <description>This message contains information about boid's groundspeed.</description>
       <field type="float" name="groundspeed" units="m/s">Current ground speed</field>
-      <field type="float" name="distance" units="m/s">Distance to buddy</field>
+      <field type="float" name="distance" units="m">Distance to buddy</field>
     </message>         
     <message id="275" name="GLOBAL_POI">
       <description>This message contains information about boid.</description>
