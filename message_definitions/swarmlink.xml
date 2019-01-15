@@ -38,7 +38,7 @@
       <field type="float" name="groundspeed" units="m/s">Current ground speed</field>
     </message>
     <message id="272" name="BUDDY_INFO">
-      <description>This message contains information about boid.</description>
+      <description>This message contains information about a boid.</description>
       <field type="uint8_t" name="gpid">Group ID</field>
       <field type="uint8_t" name="mav_id">MAV ID</field>
       <field type="uint32_t" name="flightlevel" units="m">Flight level</field>
